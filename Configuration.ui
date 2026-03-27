@@ -158,7 +158,43 @@
                     </property>
                    </widget>
                   </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="encryption_key_label">
+                    <property name="text">
+                     <string>Encryption Key:</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>encryption_key_line_edit</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QLineEdit" name="encryption_key_line_edit">
+                    <property name="toolTip">
+                     <string>Shared key used to encrypt message payloads and decrypt matching incoming traffic.</string>
+                    </property>
+                    <property name="echoMode">
+                     <enum>QLineEdit::Password</enum>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Leave blank to disable encryption</string>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="6" column="1">
+                   <widget class="QCheckBox" name="hide_unencrypted_messages_check_box">
+                    <property name="toolTip">
+                     <string>When enabled, only messages that decrypt with the configured key are shown.</string>
+                    </property>
+                    <property name="text">
+                     <string>Hide messages that do not decrypt with this key</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="1">
                    <widget class="QComboBox" name="region_combo_box">
                     <property name="visible">
                      <bool>false</bool>
@@ -168,7 +204,7 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="6" column="0">
+                  <item row="7" column="0">
                    <widget class="QLabel" name="region_label">
                     <property name="visible">
                      <bool>false</bool>

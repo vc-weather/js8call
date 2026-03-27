@@ -117,6 +117,8 @@ public:
   QString mfi() const;
   QString my_info () const;
   QString my_status () const;
+  QString encryption_key () const;
+  bool hide_unencrypted_messages () const;
   QString hb_message () const;
   QString cq_message () const;
   QString reply_message () const;

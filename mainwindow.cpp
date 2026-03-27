@@ -84,6 +84,7 @@
 #include "JS8Submode.hpp"
 #include "EventFilter.hpp"
 #include "Geodesic.hpp"
+#include "MessageCrypto.hpp"
 
 #include "ui_mainwindow.h"
 #include "moc_mainwindow.cpp"
@@ -1120,6 +1121,8 @@ MainWindow::MainWindow(QString  const & program_info,
           return QVariant::compare(a.second.params().value("UTC"),
                                    b.second.params().value("UTC")) == QPartialOrdering::Greater;
       });
+
+      msgs = filteredInboxMessages(msgs);
 
       auto mw = new MessageWindow(this);
       connect(mw, &MessageWindow::finished, this, [this](int){
@@ -4009,10 +4012,13 @@ MainWindow::processDecodeEvent(JS8::Event::Variant const & event)
               // TODO: incremental display if it's "to" me.
           }
 
-          m_rxActivityQueue.append(d);
-          m_bandActivity[offset].append(d);
-          while(m_bandActivity[offset].count() > 10){
-              m_bandActivity[offset].removeFirst();
+          auto visibleActivity = d;
+          if(rewriteVisibleText(&visibleActivity.text)){
+              m_rxActivityQueue.append(visibleActivity);
+              m_bandActivity[offset].append(visibleActivity);
+              while(m_bandActivity[offset].count() > 10){
+                  m_bandActivity[offset].removeFirst();
+              }
           }
         }
       #endif
@@ -5337,6 +5343,143 @@ bool MainWindow::ensureCreateMessageReady(const QString &text){
     return true;
 }
 
+bool MainWindow::hideUnencryptedMessages() const
+{
+    return MessageCrypto::hasKey(m_config.encryption_key()) && m_config.hide_unencrypted_messages();
+}
+
+bool MainWindow::decryptMaybeEncryptedText(QString text, QString *plaintext) const
+{
+    auto marker = text.indexOf(MessageCrypto::envelopePrefix());
+    if (marker < 0) {
+        return false;
+    }
+
+    QString const prefix = text.left(marker);
+    QString const encoded = text.mid(marker).trimmed();
+    QString decoded;
+    if (!MessageCrypto::decrypt(encoded, m_config.encryption_key(), &decoded)) {
+        return false;
+    }
+
+    if (plaintext) {
+        *plaintext = prefix + decoded;
+    }
+    return true;
+}
+
+bool MainWindow::rewriteVisibleText(QString *text) const
+{
+    if (!text) {
+        return false;
+    }
+
+    if (!MessageCrypto::hasKey(m_config.encryption_key())) {
+        return true;
+    }
+
+    QString decoded;
+    if (decryptMaybeEncryptedText(*text, &decoded)) {
+        *text = decoded;
+        return true;
+    }
+
+    return !hideUnencryptedMessages();
+}
+
+QList<QPair<int, Message>> MainWindow::filteredInboxMessages(QList<QPair<int, Message>> const& msgs) const
+{
+    QList<QPair<int, Message>> filtered;
+    filtered.reserve(msgs.size());
+
+    for (auto const& pair : msgs) {
+        auto params = pair.second.params();
+        if (params.value("ENCRYPTED").toBool()) {
+            filtered.append(pair);
+            continue;
+        }
+
+        auto text = params.value("TEXT").toString();
+        if (!text.isEmpty() && !rewriteVisibleText(&text)) {
+            continue;
+        }
+
+        if (params.value("TEXT").isValid()) {
+            params["TEXT"] = text;
+        }
+
+        filtered.append({pair.first, Message(pair.second.type(), pair.second.value(), params)});
+    }
+
+    return filtered;
+}
+
+QString MainWindow::prepareEncryptedOutgoingText(QString const& text)
+{
+    auto const key = m_config.encryption_key();
+    if (!MessageCrypto::hasKey(key) || text.trimmed().isEmpty()) {
+        return text;
+    }
+
+    QString line = text;
+    QString const selectedCall = callsignSelected();
+
+    if (!selectedCall.isEmpty() &&
+        !line.startsWith(selectedCall) &&
+        !line.startsWith("`") &&
+        !Varicode::startsWithCQ(line) &&
+        !Varicode::startsWithHB(line)) {
+        auto const calls = Varicode::parseCallsigns(line);
+        bool const startsWithCall = !calls.isEmpty() && line.startsWith(calls.first()) && calls.first().length() > 3;
+        if (!startsWithCall) {
+            QString const sep = line.startsWith(" ") ? "" : " ";
+            line = QString("%1%2%3").arg(selectedCall, sep, line);
+        }
+    }
+
+    if (line.startsWith("`") || Varicode::startsWithCQ(line) || Varicode::startsWithHB(line)) {
+        return text;
+    }
+
+    QString dirTo;
+    QString dirCmd;
+    QString dirNum;
+    bool dirToCompound = false;
+    int prefixLength = 0;
+    Varicode::packDirectedMessage(line, m_config.my_callsign(), &dirTo, &dirToCompound, &dirCmd, &dirNum, &prefixLength);
+
+    if (prefixLength > 0) {
+        QString const prefix = Varicode::rstrip(line.left(prefixLength));
+        QString const payload = Varicode::lstrip(line.mid(prefixLength));
+        if (payload.isEmpty()) {
+            return line;
+        }
+
+        if (dirCmd == " MSG TO:") {
+            auto const splitAt = payload.indexOf(' ');
+            if (splitAt <= 0 || splitAt >= payload.size() - 1) {
+                return line;
+            }
+
+            QString const destination = payload.left(splitAt);
+            QString const body = Varicode::lstrip(payload.mid(splitAt + 1));
+            if (body.isEmpty()) {
+                return line;
+            }
+
+            return QString("%1 %2 %3").arg(prefix, destination, MessageCrypto::encrypt(body, key));
+        }
+
+        if (dirCmd == " MSG" || dirCmd == " " || dirCmd == "  ") {
+            return QString("%1 %2").arg(prefix, MessageCrypto::encrypt(payload, key));
+        }
+
+        return line;
+    }
+
+    return MessageCrypto::encrypt(line, key);
+}
+
 QString MainWindow::createMessage(QString const& text, bool *pDisableTypeahead){
     return createMessageTransmitQueue(replaceMacros(text, buildMacroValues(), false), true, false, pDisableTypeahead);
 }
@@ -5426,6 +5569,8 @@ MainWindow::tableSelectionChanged(QItemSelection const &,
 }
 
 QList<QPair<QString, int>> MainWindow::buildMessageFrames(const QString &text, bool isData, bool *pDisableTypeahead){
+    auto encryptedText = prepareEncryptedOutgoingText(text);
+
     // prepare selected callsign for directed message
     QString selectedCall = callsignSelected();
 
@@ -5443,7 +5588,7 @@ QList<QPair<QString, int>> MainWindow::buildMessageFrames(const QString &text, b
         mycall,
         mygrid,
         selectedCall,
-        text,
+        encryptedText,
         forceIdentify,
         forceData,
         m_nSubMode,
@@ -7249,13 +7394,13 @@ void MainWindow::on_tableWidgetCalls_cellDoubleClicked(int row, int col){
 
         Inbox i(inboxPath());
         if(i.open()){
-            QList<Message> msgs;
+            QList<QPair<int, Message>> msgs;
             foreach(auto pair, i.values("UNREAD", "$.params.FROM", call, 0, 1000)){
-                msgs.append(pair.second);
+                msgs.append(pair);
             }
 
             auto mw = new MessageWindow(this);
-            mw->populateMessages(msgs);
+            mw->populateMessages(filteredInboxMessages(msgs));
             mw->show();
 
             auto pair = i.firstUnreadFrom(call);
@@ -7263,7 +7408,7 @@ void MainWindow::on_tableWidgetCalls_cellDoubleClicked(int row, int col){
             auto msg = pair.second;
             auto params = msg.params();
 
-            CommandDetail d;
+            CommandDetail d = {};
             d.cmd = params.value("CMD").toString();
             d.extra = params.value("EXTRA").toString();
             d.freq = params.value("OFFSET").toInt();
@@ -7851,6 +7996,7 @@ void MainWindow::updateTextDisplay(){
 void MainWindow::refreshTextDisplay(){
     qDebug() << "refreshing text display...";
     auto text = ui->extFreeTextMsgEdit->toPlainText();
+    auto transmitText = prepareEncryptedOutgoingText(text);
 
 #if USE_SYNC_FRAME_COUNT
     auto frames = buildMessageFrames(text);
@@ -7890,7 +8036,7 @@ void MainWindow::refreshTextDisplay(){
         mycall,
         mygrid,
         selectedCall,
-        text,
+        transmitText,
         forceIdentify,
         forceData,
         m_nSubMode
@@ -8544,7 +8690,14 @@ MainWindow::processBufferedActivity()
             buffer.cmd.bits |= Varicode::JS8CallLast;
             buffer.cmd.text = message;
             buffer.cmd.isBuffered = true;
-            m_rxCommandQueue.append(buffer.cmd);
+            QString decrypted;
+            buffer.cmd.isEncrypted = decryptMaybeEncryptedText(buffer.cmd.text, &decrypted);
+            if(buffer.cmd.isEncrypted){
+                buffer.cmd.text = decrypted;
+                m_rxCommandQueue.append(buffer.cmd);
+            } else if(rewriteVisibleText(&buffer.cmd.text)){
+                m_rxCommandQueue.append(buffer.cmd);
+            }
         } else {
             qDebug() << "Buffered message failed checksum...discarding";
             qDebug() << "Checksum:" << checksum;
@@ -9498,6 +9651,10 @@ int MainWindow::addCommandToStorage(QString type, CommandDetail d){
 
     if(!d.text.isEmpty()){
         v["TEXT"] = QVariant(d.text);
+    }
+
+    if(d.isEncrypted){
+        v["ENCRYPTED"] = QVariant(true);
     }
 
     auto m = Message(type, "", v);
@@ -10788,6 +10945,8 @@ void MainWindow::networkMessage(Message const &message)
             return QVariant::compare(a.second.params().value("UTC"),
                                      b.second.params().value("UTC")) == QPartialOrdering::Greater;
         });
+
+        msgs = filteredInboxMessages(msgs);
 
         QVariantList l;
         foreach(auto pair, msgs){

@@ -164,6 +164,11 @@ public slots:
   QPair<QString, int> popMessageFrame();
   void tryNotify(const QString &key);
   void processDecodeEvent(JS8::Event::Variant const &);
+  QString prepareEncryptedOutgoingText(QString const& text);
+  bool decryptMaybeEncryptedText(QString text, QString *plaintext) const;
+  bool rewriteVisibleText(QString *text) const;
+  QList<QPair<int, Message>> filteredInboxMessages(QList<QPair<int, Message>> const& msgs) const;
+  bool hideUnencryptedMessages() const;
 
 protected:
   void keyPressEvent (QKeyEvent *) override;
@@ -536,6 +541,7 @@ private:
     float tdrift;
     int submode;
     QString relayPath;
+    bool isEncrypted;
   };
 
   struct ActivityDetail

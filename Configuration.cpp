@@ -591,6 +591,7 @@ private:
   QString mfi_;
   QString my_info_;
   QString my_status_;
+  QString encryption_key_;
   QString cq_;
   QString hb_;
   QString reply_;
@@ -651,6 +652,7 @@ private:
   bool hold_ptt_;
   bool avoid_forced_identify_;
   bool avoid_allcall_;
+  bool hide_unencrypted_messages_;
   bool spellcheck_;
   int heartbeat_;
   int watchdog_;
@@ -743,6 +745,8 @@ bool Configuration::restart_audio_output () const {return m_->restart_sound_outp
 bool Configuration::restart_notification_audio_output () const {return m_->restart_notification_sound_output_device_;}
 bool Configuration::use_dynamic_grid() const {return m_->use_dynamic_info_; }
 QString Configuration::my_callsign () const {return m_->my_callsign_;}
+QString Configuration::encryption_key () const {return m_->encryption_key_;}
+bool Configuration::hide_unencrypted_messages () const {return m_->hide_unencrypted_messages_;}
 QColor Configuration::color_table_background() const { return m_->color_table_background_; }
 QColor Configuration::color_table_highlight() const  { return m_->color_table_highlight_; }
 QColor Configuration::color_table_foreground() const { return m_->color_table_foreground_; }
@@ -1583,6 +1587,8 @@ void Configuration::impl::initialize_models ()
   ui_->callsign_aging_spin_box->setValue(callsign_aging_);
   ui_->activity_aging_spin_box->setValue(activity_aging_);
   ui_->groups_line_edit->setText(my_groups_.join(", "));
+  ui_->encryption_key_line_edit->setText(encryption_key_);
+  ui_->hide_unencrypted_messages_check_box->setChecked(hide_unencrypted_messages_);
   ui_->auto_whitelist_line_edit->setText(auto_whitelist_.join(", "));
   ui_->auto_blacklist_line_edit->setText(auto_blacklist_.join(", "));
   ui_->hb_blacklist_line_edit->setText(hb_blacklist_.join(", "));
@@ -1856,6 +1862,7 @@ void Configuration::impl::read_settings ()
   mfi_ = settings_->value("MFICharacter", QString{"\u2026\u2026"}).toString();
   my_info_ = settings_->value("MyInfo", QString {}).toString();
   my_status_ = settings_->value("MyStatus", QString {"IDLE <MYIDLE> VERSION <MYVERSION>"}).toString();
+  encryption_key_ = settings_->value("EncryptionKey", QString {}).toString();
   hb_ = settings_->value("HBMessage", QString {"HB <MYGRID4>"}).toString();
   cq_ = settings_->value("CQMessage", QString {"CQ CQ CQ <MYGRID4>"}).toString();
   reply_ = settings_->value("Reply", QString {"HW CPY?"}).toString();
@@ -2012,6 +2019,7 @@ void Configuration::impl::read_settings ()
   hold_ptt_ = settings_->value ("HoldPTT", false).toBool();
   avoid_forced_identify_ = settings_->value ("AvoidForcedIdentify", false).toBool ();
   avoid_allcall_ = settings_->value ("AvoidAllcall", false).toBool ();
+  hide_unencrypted_messages_ = settings_->value ("HideUnencryptedMessages", true).toBool ();
   spellcheck_ = settings_->value ("Spellcheck", true).toBool();
   heartbeat_ = settings_->value ("TxBeacon", 30).toInt ();
   watchdog_ = settings_->value ("TxIdleWatchdog", 60).toInt ();
@@ -2128,6 +2136,7 @@ void Configuration::impl::write_settings ()
   settings_->setValue ("MFICharacter", mfi_);
   settings_->setValue ("MyInfo", my_info_);
   settings_->setValue ("MyStatus", my_status_);
+  settings_->setValue ("EncryptionKey", encryption_key_);
   settings_->setValue ("CQMessage", cq_);
   settings_->setValue ("HBMessage", hb_);
   settings_->setValue ("Reply", reply_);
@@ -2210,6 +2219,7 @@ void Configuration::impl::write_settings ()
   settings_->setValue ("HoldPTT", hold_ptt_);
   settings_->setValue ("AvoidForcedIdentify", avoid_forced_identify_);
   settings_->setValue ("AvoidAllcall", avoid_allcall_);
+  settings_->setValue ("HideUnencryptedMessages", hide_unencrypted_messages_);
   settings_->setValue ("Spellcheck", spellcheck_);
   settings_->setValue ("TxBeacon", heartbeat_);
   settings_->setValue ("TxIdleWatchdog", watchdog_);
@@ -2748,6 +2758,7 @@ void Configuration::impl::accept ()
   my_callsign_ = ui_->callsign_line_edit->text ().toUpper().trimmed();
   my_grid_ = ui_->grid_line_edit->text ().toUpper().trimmed();
   my_groups_ = splitGroups(ui_->groups_line_edit->text().toUpper().trimmed(), true);
+  encryption_key_ = ui_->encryption_key_line_edit->text();
   auto_whitelist_ = splitWords(ui_->auto_whitelist_line_edit->text().toUpper().trimmed());
   auto_blacklist_ = splitWords(ui_->auto_blacklist_line_edit->text().toUpper().trimmed());
   hb_blacklist_ = splitWords(ui_->hb_blacklist_line_edit->text().toUpper().trimmed());
@@ -2785,6 +2796,7 @@ void Configuration::impl::accept ()
   hold_ptt_ = ui_->hold_ptt_check_box->isChecked();
   avoid_forced_identify_ = ui_->avoid_forced_identify_check_box->isChecked();
   avoid_allcall_ = ui_->avoid_allcall_check_box->isChecked();
+  hide_unencrypted_messages_ = ui_->hide_unencrypted_messages_check_box->isChecked();
   spellcheck_ = ui_->spellcheck_check_box->isChecked();
   heartbeat_ = ui_->heartbeat_spin_box->value ();
   watchdog_ = ui_->tx_watchdog_spin_box->value ();
