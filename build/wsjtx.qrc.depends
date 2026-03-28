@@ -1,0 +1,36 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource>
+    <file alias="/cty.dat">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/cty.dat</file>
+    <file alias="/icon_128x128.png">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/icons/Darwin/JS8Call.iconset/icon_128x128.png</file>
+    <file alias="/gpl-v3-logo.svg">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/contrib/gpl-v3-logo.svg</file>
+    <file alias="/Palettes/Banana.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Banana.pal</file>
+    <file alias="/Palettes/Blue1.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Blue1.pal</file>
+    <file alias="/Palettes/Blue2.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Blue2.pal</file>
+    <file alias="/Palettes/Blue3.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Blue3.pal</file>
+    <file alias="/Palettes/Brown.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Brown.pal</file>
+    <file alias="/Palettes/Cyan1.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Cyan1.pal</file>
+    <file alias="/Palettes/Cyan2.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Cyan2.pal</file>
+    <file alias="/Palettes/Cyan3.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Cyan3.pal</file>
+    <file alias="/Palettes/Default.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Default.pal</file>
+    <file alias="/Palettes/Digipan.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Digipan.pal</file>
+    <file alias="/Palettes/Fldigi.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Fldigi.pal</file>
+    <file alias="/Palettes/Gray1.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Gray1.pal</file>
+    <file alias="/Palettes/Gray2.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Gray2.pal</file>
+    <file alias="/Palettes/Green1.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Green1.pal</file>
+    <file alias="/Palettes/Green2.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Green2.pal</file>
+    <file alias="/Palettes/Jungle.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Jungle.pal</file>
+    <file alias="/Palettes/Linrad.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Linrad.pal</file>
+    <file alias="/Palettes/Negative.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Negative.pal</file>
+    <file alias="/Palettes/Orange.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Orange.pal</file>
+    <file alias="/Palettes/Pink.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Pink.pal</file>
+    <file alias="/Palettes/Rainbow.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Rainbow.pal</file>
+    <file alias="/Palettes/Scope.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Scope.pal</file>
+    <file alias="/Palettes/Sunburst.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Sunburst.pal</file>
+    <file alias="/Palettes/VK4BDJ.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/VK4BDJ.pal</file>
+    <file alias="/Palettes/YL2KF.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/YL2KF.pal</file>
+    <file alias="/Palettes/Yellow1.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Yellow1.pal</file>
+    <file alias="/Palettes/Yellow2.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/Yellow2.pal</file>
+    <file alias="/Palettes/ZL1FZ.pal">/Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/Palettes/ZL1FZ.pal</file>
+  </qresource>
+</RCC>

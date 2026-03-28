@@ -422,7 +422,31 @@ message (STATUS "Hamlib_LIBRARIES: ${Hamlib_LIBRARIES}")
 #
 # Qt6 setup
 #
+if (APPLE AND NOT TARGET WrapOpenGL::WrapOpenGL)
+  find_package (OpenGL REQUIRED)
+  add_library (WrapOpenGL::WrapOpenGL INTERFACE IMPORTED)
+  target_link_libraries (WrapOpenGL::WrapOpenGL INTERFACE OpenGL::GL)
+endif ()
+
 find_package(Qt6 6.4 REQUIRED COMPONENTS Widgets Multimedia SerialPort)
+
+if (APPLE AND TARGET Qt6::Gui)
+  foreach (_prop
+      INTERFACE_LINK_LIBRARIES
+      IMPORTED_LINK_INTERFACE_LIBRARIES
+      IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE
+      IMPORTED_LINK_INTERFACE_LIBRARIES_RELWITHDEBINFO
+      IMPORTED_LINK_INTERFACE_LIBRARIES_MINSIZEREL
+      IMPORTED_LINK_INTERFACE_LIBRARIES_DEBUG)
+    get_target_property (_qt_gui_libs Qt6::Gui ${_prop})
+    if (_qt_gui_libs)
+      list (FILTER _qt_gui_libs EXCLUDE REGEX "AGL")
+      set_target_properties (Qt6::Gui PROPERTIES
+        ${_prop} "${_qt_gui_libs}"
+        )
+    endif ()
+  endforeach ()
+endif ()
 
 if (WIN32)
   add_definitions (-DQT_NEEDS_QTMAIN)

@@ -1,0 +1,588 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'Configuration.cpp'
+**
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.8.2)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <QtCore/qmetatype.h>
+
+#include <QtCore/qtmochelpers.h>
+
+#include <memory>
+
+
+#include <QtCore/qxptype_traits.h>
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'Configuration.cpp' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 68
+#error "This file was generated using the moc from 6.8.2. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+QT_WARNING_DISABLE_GCC("-Wuseless-cast")
+namespace {
+struct qt_meta_tag_ZN13Configuration4implE_t {};
+} // unnamed namespace
+
+
+#ifdef QT_MOC_HAS_STRINGDATA
+static constexpr auto qt_meta_stringdata_ZN13Configuration4implE = QtMocHelpers::stringData(
+    "Configuration::impl",
+    "start_transceiver",
+    "",
+    "seqeunce_number",
+    "set_transceiver",
+    "Transceiver::TransceiverState",
+    "sequence_number",
+    "stop_transceiver",
+    "exec",
+    "accept",
+    "reject",
+    "done",
+    "on_psk_reporter_check_box_toggled",
+    "checked",
+    "on_enable_aprs_spotting_check_box_toggled",
+    "on_notifications_check_box_toggled",
+    "on_font_push_button_clicked",
+    "on_tableFontButton_clicked",
+    "on_PTT_port_combo_box_activated",
+    "on_CAT_port_combo_box_activated",
+    "on_CAT_serial_baud_combo_box_currentIndexChanged",
+    "on_CAT_data_bits_button_group_buttonClicked",
+    "QAbstractButton*",
+    "on_CAT_stop_bits_button_group_buttonClicked",
+    "on_CAT_handshake_button_group_buttonClicked",
+    "on_CAT_poll_interval_spin_box_valueChanged",
+    "on_split_mode_button_group_buttonClicked",
+    "on_test_CAT_push_button_clicked",
+    "on_test_PTT_push_button_clicked",
+    "on_force_DTR_combo_box_currentIndexChanged",
+    "on_force_RTS_combo_box_currentIndexChanged",
+    "on_rig_combo_box_currentIndexChanged",
+    "on_add_macro_push_button_clicked",
+    "on_delete_macro_push_button_clicked",
+    "on_PTT_method_button_group_buttonClicked",
+    "on_groups_line_edit_textChanged",
+    "on_info_message_line_edit_textChanged",
+    "on_cq_message_line_edit_textChanged",
+    "on_reply_message_line_edit_textChanged",
+    "on_add_macro_line_edit_editingFinished",
+    "delete_macro",
+    "on_save_path_select_push_button_clicked",
+    "on_calibration_intercept_spin_box_valueChanged",
+    "on_calibration_slope_ppm_spin_box_valueChanged",
+    "handle_transceiver_update",
+    "TransceiverState",
+    "handle_transceiver_failure",
+    "reason",
+    "on_cqMessagesButton_clicked",
+    "on_primaryHighlightButton_clicked",
+    "on_secondaryHighlightButton_clicked",
+    "on_pbMyCall_clicked",
+    "on_tableBackgroundButton_clicked",
+    "on_tableSelectedRowBackgroundButton_clicked",
+    "on_tableForegroundButton_clicked",
+    "on_rxBackgroundButton_clicked",
+    "on_rxForegroundButton_clicked",
+    "on_rxFontButton_clicked",
+    "on_composeBackgroundButton_clicked",
+    "on_composeForegroundButton_clicked",
+    "on_composeFontButton_clicked",
+    "on_txForegroundButton_clicked",
+    "on_txFontButton_clicked"
+);
+#else  // !QT_MOC_HAS_STRINGDATA
+#error "qtmochelpers.h not found or too old."
+#endif // !QT_MOC_HAS_STRINGDATA
+
+Q_CONSTINIT static const uint qt_meta_data_ZN13Configuration4implE[] = {
+
+ // content:
+      12,       // revision
+       0,       // classname
+       0,    0, // classinfo
+      56,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       3,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    1,  350,    2, 0x104,    1 /* Private | MethodIsConst  */,
+       4,    2,  353,    2, 0x104,    3 /* Private | MethodIsConst  */,
+       7,    0,  358,    2, 0x104,    6 /* Private | MethodIsConst  */,
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       8,    0,  359,    2, 0x0a,    7 /* Public */,
+       9,    0,  360,    2, 0x0a,    8 /* Public */,
+      10,    0,  361,    2, 0x0a,    9 /* Public */,
+      11,    1,  362,    2, 0x0a,   10 /* Public */,
+      12,    1,  365,    2, 0x08,   12 /* Private */,
+      14,    1,  368,    2, 0x08,   14 /* Private */,
+      15,    1,  371,    2, 0x08,   16 /* Private */,
+      16,    0,  374,    2, 0x08,   18 /* Private */,
+      17,    0,  375,    2, 0x08,   19 /* Private */,
+      18,    1,  376,    2, 0x08,   20 /* Private */,
+      19,    1,  379,    2, 0x08,   22 /* Private */,
+      20,    1,  382,    2, 0x08,   24 /* Private */,
+      21,    1,  385,    2, 0x08,   26 /* Private */,
+      23,    1,  388,    2, 0x08,   28 /* Private */,
+      24,    1,  391,    2, 0x08,   30 /* Private */,
+      25,    1,  394,    2, 0x08,   32 /* Private */,
+      26,    1,  397,    2, 0x08,   34 /* Private */,
+      27,    0,  400,    2, 0x08,   36 /* Private */,
+      28,    1,  401,    2, 0x08,   37 /* Private */,
+      29,    1,  404,    2, 0x08,   39 /* Private */,
+      30,    1,  407,    2, 0x08,   41 /* Private */,
+      31,    1,  410,    2, 0x08,   43 /* Private */,
+      32,    1,  413,    2, 0x08,   45 /* Private */,
+      32,    0,  416,    2, 0x28,   47 /* Private | MethodCloned */,
+      33,    1,  417,    2, 0x08,   48 /* Private */,
+      33,    0,  420,    2, 0x28,   50 /* Private | MethodCloned */,
+      34,    1,  421,    2, 0x08,   51 /* Private */,
+      35,    1,  424,    2, 0x08,   53 /* Private */,
+      36,    1,  427,    2, 0x08,   55 /* Private */,
+      37,    1,  430,    2, 0x08,   57 /* Private */,
+      38,    1,  433,    2, 0x08,   59 /* Private */,
+      39,    0,  436,    2, 0x08,   61 /* Private */,
+      40,    0,  437,    2, 0x08,   62 /* Private */,
+      41,    1,  438,    2, 0x08,   63 /* Private */,
+      42,    1,  441,    2, 0x08,   65 /* Private */,
+      43,    1,  444,    2, 0x08,   67 /* Private */,
+      44,    2,  447,    2, 0x08,   69 /* Private */,
+      46,    1,  452,    2, 0x08,   72 /* Private */,
+      48,    0,  455,    2, 0x08,   74 /* Private */,
+      49,    0,  456,    2, 0x08,   75 /* Private */,
+      50,    0,  457,    2, 0x08,   76 /* Private */,
+      51,    0,  458,    2, 0x08,   77 /* Private */,
+      52,    0,  459,    2, 0x08,   78 /* Private */,
+      53,    0,  460,    2, 0x08,   79 /* Private */,
+      54,    0,  461,    2, 0x08,   80 /* Private */,
+      55,    0,  462,    2, 0x08,   81 /* Private */,
+      56,    0,  463,    2, 0x08,   82 /* Private */,
+      57,    0,  464,    2, 0x08,   83 /* Private */,
+      58,    0,  465,    2, 0x08,   84 /* Private */,
+      59,    0,  466,    2, 0x08,   85 /* Private */,
+      60,    0,  467,    2, 0x08,   86 /* Private */,
+      61,    0,  468,    2, 0x08,   87 /* Private */,
+      62,    0,  469,    2, 0x08,   88 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void, QMetaType::UInt,    3,
+    QMetaType::Void, 0x80000000 | 5, QMetaType::UInt,    2,    6,
+    QMetaType::Void,
+
+ // slots: parameters
+    QMetaType::Int,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Bool,   13,
+    QMetaType::Void, QMetaType::Bool,   13,
+    QMetaType::Void, QMetaType::Bool,   13,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, 0x80000000 | 22,    2,
+    QMetaType::Void, 0x80000000 | 22,    2,
+    QMetaType::Void, 0x80000000 | 22,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, 0x80000000 | 22,    2,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   13,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 22,    2,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void, QMetaType::Double,    2,
+    QMetaType::Void, QMetaType::Double,    2,
+    QMetaType::Void, 0x80000000 | 45, QMetaType::UInt,    2,    6,
+    QMetaType::Void, QMetaType::QString,   47,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+
+       0        // eod
+};
+
+Q_CONSTINIT const QMetaObject Configuration::impl::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
+    qt_meta_stringdata_ZN13Configuration4implE.offsetsAndSizes,
+    qt_meta_data_ZN13Configuration4implE,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_tag_ZN13Configuration4implE_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<impl, std::true_type>,
+        // method 'start_transceiver'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<unsigned , std::false_type>,
+        // method 'set_transceiver'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Transceiver::TransceiverState const &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<unsigned , std::false_type>,
+        // method 'stop_transceiver'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'exec'
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'accept'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'reject'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'done'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_psk_reporter_check_box_toggled'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'on_enable_aprs_spotting_check_box_toggled'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'on_notifications_check_box_toggled'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'on_font_push_button_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_tableFontButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_PTT_port_combo_box_activated'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_CAT_port_combo_box_activated'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_CAT_serial_baud_combo_box_currentIndexChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_CAT_data_bits_button_group_buttonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QAbstractButton *, std::false_type>,
+        // method 'on_CAT_stop_bits_button_group_buttonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QAbstractButton *, std::false_type>,
+        // method 'on_CAT_handshake_button_group_buttonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QAbstractButton *, std::false_type>,
+        // method 'on_CAT_poll_interval_spin_box_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_split_mode_button_group_buttonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QAbstractButton *, std::false_type>,
+        // method 'on_test_CAT_push_button_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_test_PTT_push_button_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'on_force_DTR_combo_box_currentIndexChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_force_RTS_combo_box_currentIndexChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_rig_combo_box_currentIndexChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_add_macro_push_button_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'on_add_macro_push_button_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_delete_macro_push_button_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'on_delete_macro_push_button_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_PTT_method_button_group_buttonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QAbstractButton *, std::false_type>,
+        // method 'on_groups_line_edit_textChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString const &, std::false_type>,
+        // method 'on_info_message_line_edit_textChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString const &, std::false_type>,
+        // method 'on_cq_message_line_edit_textChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString const &, std::false_type>,
+        // method 'on_reply_message_line_edit_textChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString const &, std::false_type>,
+        // method 'on_add_macro_line_edit_editingFinished'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'delete_macro'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_save_path_select_push_button_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'on_calibration_intercept_spin_box_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<double, std::false_type>,
+        // method 'on_calibration_slope_ppm_spin_box_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<double, std::false_type>,
+        // method 'handle_transceiver_update'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<TransceiverState const &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<unsigned , std::false_type>,
+        // method 'handle_transceiver_failure'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString const &, std::false_type>,
+        // method 'on_cqMessagesButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_primaryHighlightButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_secondaryHighlightButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pbMyCall_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_tableBackgroundButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_tableSelectedRowBackgroundButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_tableForegroundButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_rxBackgroundButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_rxForegroundButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_rxFontButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_composeBackgroundButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_composeForegroundButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_composeFontButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_txForegroundButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_txFontButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
+    >,
+    nullptr
+} };
+
+void Configuration::impl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<impl *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->start_transceiver((*reinterpret_cast< std::add_pointer_t<uint>>(_a[1]))); break;
+        case 1: _t->set_transceiver((*reinterpret_cast< std::add_pointer_t<Transceiver::TransceiverState>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint>>(_a[2]))); break;
+        case 2: _t->stop_transceiver(); break;
+        case 3: { int _r = _t->exec();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 4: _t->accept(); break;
+        case 5: _t->reject(); break;
+        case 6: _t->done((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 7: _t->on_psk_reporter_check_box_toggled((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 8: _t->on_enable_aprs_spotting_check_box_toggled((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 9: _t->on_notifications_check_box_toggled((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 10: _t->on_font_push_button_clicked(); break;
+        case 11: _t->on_tableFontButton_clicked(); break;
+        case 12: _t->on_PTT_port_combo_box_activated((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 13: _t->on_CAT_port_combo_box_activated((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 14: _t->on_CAT_serial_baud_combo_box_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 15: _t->on_CAT_data_bits_button_group_buttonClicked((*reinterpret_cast< std::add_pointer_t<QAbstractButton*>>(_a[1]))); break;
+        case 16: _t->on_CAT_stop_bits_button_group_buttonClicked((*reinterpret_cast< std::add_pointer_t<QAbstractButton*>>(_a[1]))); break;
+        case 17: _t->on_CAT_handshake_button_group_buttonClicked((*reinterpret_cast< std::add_pointer_t<QAbstractButton*>>(_a[1]))); break;
+        case 18: _t->on_CAT_poll_interval_spin_box_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 19: _t->on_split_mode_button_group_buttonClicked((*reinterpret_cast< std::add_pointer_t<QAbstractButton*>>(_a[1]))); break;
+        case 20: _t->on_test_CAT_push_button_clicked(); break;
+        case 21: _t->on_test_PTT_push_button_clicked((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 22: _t->on_force_DTR_combo_box_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 23: _t->on_force_RTS_combo_box_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 24: _t->on_rig_combo_box_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 25: _t->on_add_macro_push_button_clicked((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 26: _t->on_add_macro_push_button_clicked(); break;
+        case 27: _t->on_delete_macro_push_button_clicked((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 28: _t->on_delete_macro_push_button_clicked(); break;
+        case 29: _t->on_PTT_method_button_group_buttonClicked((*reinterpret_cast< std::add_pointer_t<QAbstractButton*>>(_a[1]))); break;
+        case 30: _t->on_groups_line_edit_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 31: _t->on_info_message_line_edit_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 32: _t->on_cq_message_line_edit_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 33: _t->on_reply_message_line_edit_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 34: _t->on_add_macro_line_edit_editingFinished(); break;
+        case 35: _t->delete_macro(); break;
+        case 36: _t->on_save_path_select_push_button_clicked((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 37: _t->on_calibration_intercept_spin_box_valueChanged((*reinterpret_cast< std::add_pointer_t<double>>(_a[1]))); break;
+        case 38: _t->on_calibration_slope_ppm_spin_box_valueChanged((*reinterpret_cast< std::add_pointer_t<double>>(_a[1]))); break;
+        case 39: _t->handle_transceiver_update((*reinterpret_cast< std::add_pointer_t<TransceiverState>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint>>(_a[2]))); break;
+        case 40: _t->handle_transceiver_failure((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 41: _t->on_cqMessagesButton_clicked(); break;
+        case 42: _t->on_primaryHighlightButton_clicked(); break;
+        case 43: _t->on_secondaryHighlightButton_clicked(); break;
+        case 44: _t->on_pbMyCall_clicked(); break;
+        case 45: _t->on_tableBackgroundButton_clicked(); break;
+        case 46: _t->on_tableSelectedRowBackgroundButton_clicked(); break;
+        case 47: _t->on_tableForegroundButton_clicked(); break;
+        case 48: _t->on_rxBackgroundButton_clicked(); break;
+        case 49: _t->on_rxForegroundButton_clicked(); break;
+        case 50: _t->on_rxFontButton_clicked(); break;
+        case 51: _t->on_composeBackgroundButton_clicked(); break;
+        case 52: _t->on_composeForegroundButton_clicked(); break;
+        case 53: _t->on_composeFontButton_clicked(); break;
+        case 54: _t->on_txForegroundButton_clicked(); break;
+        case 55: _t->on_txFontButton_clicked(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< Transceiver::TransceiverState >(); break;
+            }
+            break;
+        case 15:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractButton* >(); break;
+            }
+            break;
+        case 16:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractButton* >(); break;
+            }
+            break;
+        case 17:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractButton* >(); break;
+            }
+            break;
+        case 19:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractButton* >(); break;
+            }
+            break;
+        case 29:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractButton* >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _q_method_type = void (impl::*)(unsigned  ) const;
+            if (_q_method_type _q_method = &impl::start_transceiver; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (impl::*)(Transceiver::TransceiverState const & , unsigned  ) const;
+            if (_q_method_type _q_method = &impl::set_transceiver; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 1;
+                return;
+            }
+        }
+        {
+            using _q_method_type = void (impl::*)() const;
+            if (_q_method_type _q_method = &impl::stop_transceiver; *reinterpret_cast<_q_method_type *>(_a[1]) == _q_method) {
+                *result = 2;
+                return;
+            }
+        }
+    }
+}
+
+const QMetaObject *Configuration::impl::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Configuration::impl::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_ZN13Configuration4implE.stringdata0))
+        return static_cast<void*>(this);
+    return QDialog::qt_metacast(_clname);
+}
+
+int Configuration::impl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QDialog::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 56)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 56;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 56)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 56;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void Configuration::impl::start_transceiver(unsigned  _t1)const
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(const_cast< Configuration::impl *>(this), &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void Configuration::impl::set_transceiver(Transceiver::TransceiverState const & _t1, unsigned  _t2)const
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(const_cast< Configuration::impl *>(this), &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void Configuration::impl::stop_transceiver()const
+{
+    QMetaObject::activate(const_cast< Configuration::impl *>(this), &staticMetaObject, 2, nullptr);
+}
+QT_WARNING_POP

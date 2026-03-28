@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_wsjt_qt_FILE /Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/build/libwsjt_qt.a)
+set(__QT_DEPLOY_TARGET_wsjt_qt_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_wsjt_qtmm_FILE /Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/build/libwsjt_qtmm.a)
+set(__QT_DEPLOY_TARGET_wsjt_qtmm_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_js8call_FILE /Users/jessemorquecho/Documents/Vibecoding/JS8Call/js8call/build/js8call.app/Contents/MacOS/js8call)
+set(__QT_DEPLOY_TARGET_js8call_TYPE EXECUTABLE)
